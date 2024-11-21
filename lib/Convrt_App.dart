@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CurrencyConverter(),
-    );
-  }
-}
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       home: CurrencyConverter(),
+//     );
+//   }
+// }
 
 class CurrencyConverter extends StatefulWidget {
+  const CurrencyConverter({super.key});
+
   @override
   _CurrencyConverterState createState() => _CurrencyConverterState();
 }
@@ -35,15 +39,15 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Currency Converter (USD to PKR)'),
+        title: const Text('Currency Converter (USD to PKR)'),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.blueAccent,
-              Colors.purpleAccent,
-              Colors.orangeAccent,
+              Colors.green,
+              Colors.greenAccent,
+              Colors.black26,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -54,49 +58,49 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'USD',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _usdController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Enter amount in USD',
                   filled: true,
                   fillColor: Colors.white,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _convertCurrency,
-                child: Text('Convert'),
+                child: const Text('Convert'),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Result (PKR)',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _resultController,
                 readOnly: true, // Prevent editing the result field
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Converted amount will appear here',
                   filled: true,
                   fillColor: Colors.white,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               ElevatedButton(
                 onPressed: () {
                   _usdController.clear();
                   _resultController.clear();
                 },
-                child: Text('Clear'),
+                child: const Text('Clear'),
               ),
             ],
           ),
